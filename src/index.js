@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import NavWrapper from "./components/structure/NavWrapper";
+import AddAnimalsPage from "./pages/AddAnimalsPage";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: "/addFish",
+        element: <AddAnimalsPage />,
       },
     ],
   },

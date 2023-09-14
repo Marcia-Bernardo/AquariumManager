@@ -45,7 +45,7 @@ const Home = () => {
 
             <div className="container">
               <div className="carousel-caption text-start">
-                <img src={breeds} alt="breeds" />
+                <img className="" src={breeds} alt="breeds" />
                 <h1>Example Poecilia reticulata</h1>
                 <p>
                   A variety of guppy strains are produced by breeders through
