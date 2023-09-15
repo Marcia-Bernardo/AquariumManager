@@ -3,23 +3,23 @@ import React from "react";
 const FormFamily = () => {
   return (
     <div>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">
-          Name Family:
+      <div className="mb-3">
+        <label htmlFor="exampleFormControlInput1" className="form-label">
+          Name:
         </label>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           id="exampleFormControlInput1"
-          placeholder="name"
+          placeholder="Name"
         />
       </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">
+      <div className="mb-3">
+        <label htmlFor="exampleFormControlTextarea1" className="form-label">
           Characteristics:
         </label>
         <textarea
-          class="form-control"
+          className="form-control"
           id="exampleFormControlTextarea1"
           rows="3"
         ></textarea>

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import AddAnimalsPage from "./AddAnimalsPage";
 
 const ManagerPages = () => {
-  const [family, setFamily] = useState([
+  const [families, setFamilies] = useState([
     {
       id: 0,
       name: "Cyprinidae",
@@ -12,7 +13,7 @@ const ManagerPages = () => {
       id: 1,
       name: "Callichthyidae",
       characteristics:
-        "Callichthyidae is a family of catfishes (order Siluriformes), called armored catfishes due to the two rows of bony plates (or scutes) along the lengths of their bodies. It contains some of the most popular freshwater aquarium fish, such as many species in the genus Corydoras.",
+        "Callichthyidae is a family of catfishes (order Siluriformes), called armored catfishes due to the two rows of bony plates (or scutes) along the lengths of their bodies. It contains some of the most popular freshwater aquarium fish, such as many species in the gender Corydoras.",
     },
     {
       id: 2,
@@ -22,7 +23,7 @@ const ManagerPages = () => {
     },
   ]);
 
-  const [specie, setSpecie] = useState([
+  const [species, setSpecies] = useState([
     {
       id_sp: 0,
       id_family: 0,
@@ -55,104 +56,246 @@ const ManagerPages = () => {
   const [fish, setFish] = useState([
     {
       id_fish: 0,
-      id_sp: 0,
-      name: "Siamese algae-eater.",
-      genero: "Male",
-      arrival_date: "06/09/2023",
+      id_race: 6,
+      gender: "Male",
+      arrival_date: "09/06/2023",
       date_of_death: "",
       breeding_date: "",
     },
     {
       id_fish: 1,
-      id_sp: 1,
-      name: "Pygmy corydoras.",
-      genero: "Male",
-      arrival_date: "06/09/2023",
+      id_race: 5,
+      gender: "Male",
+      arrival_date: "09/06/2023",
       date_of_death: "",
       breeding_date: "",
     },
     {
       id_fish: 2,
-      id_sp: 1,
-      name: "Pygmy corydoras.",
-      genero: "Male",
-      arrival_date: "06/09/2023",
+      id_race: 5,
+      gender: "Male",
+      arrival_date: "09/06/2023",
       date_of_death: "",
       breeding_date: "",
     },
     {
       id_fish: 3,
-      id_sp: 1,
-      name: "Pygmy corydoras.",
-      genero: "Male",
-      arrival_date: "06/09/2023",
+      id_race: 5,
+      gender: "Male",
+      arrival_date: "09/06/2023",
       date_of_death: "",
       breeding_date: "",
     },
     {
       id_fish: 4,
-      id_sp: 1,
-      name: "Pygmy corydoras.",
-      genero: "Male",
-      arrival_date: "06/09/2023",
+      id_race: 5,
+      gender: "Male",
+      arrival_date: "09/06/2023",
       date_of_death: "",
       breeding_date: "",
     },
     {
       id_fish: 5,
       id_sp: 2,
-      name: "Assorted Guppy",
-      genero: "Female",
-      arrival_date: "15/08/2023",
+      id_race: 0,
+      gender: "Female",
+      arrival_date: "08/15/2023",
       date_of_death: "",
-      breeding_date: "10/09/2023",
+      breeding_date: "09/10/2023",
     },
     {
       id_fish: 6,
       id_sp: 2,
-      name: "Assorted Guppy",
-      genero: "Female",
-      arrival_date: "15/08/2023",
+      id_race: 0,
+      gender: "Female",
+      arrival_date: "08/15/2023",
       date_of_death: "",
-      breeding_date: "10/09/2023",
+      breeding_date: "09/10/2023",
     },
     {
       id_fish: 7,
       id_sp: 2,
-      name: "Guppy Koi Tuxedo",
-      genero: "Male",
-      arrival_date: "06/09/2023",
+      id_race: 3,
+      gender: "Male",
+      arrival_date: "09/06/2023",
       date_of_death: "",
       breeding_date: "",
     },
     {
       id_fish: 8,
-      id_sp: 2,
-      name: "Guppy Koi Tuxedo",
-      genero: "Male",
-      arrival_date: "06/09/2023",
+      id_race: 4,
+      gender: "Male",
+      arrival_date: "09/06/2023",
       date_of_death: "",
       breeding_date: "",
     },
     {
       id_fish: 9,
-      id_sp: 2,
-      name: "Guppy Emerald Blue and Red Grass",
-      genero: "Female",
-      arrival_date: "06/09/2023",
+      id_race: 4,
+      gender: "Female",
+      arrival_date: "09/06/2023",
+      date_of_death: "",
+      breeding_date: "",
+    },
+    {
+      id_fish: 10,
+      id_race: 4,
+      gender: "",
+      arrival_date: "09/10/2023",
+      date_of_death: "",
+      breeding_date: "",
+    },
+    {
+      id_fish: 11,
+      id_race: 4,
+      gender: "",
+      arrival_date: "09/10/2023",
+      date_of_death: "",
+      breeding_date: "",
+    },
+    {
+      id_fish: 12,
+      id_race: 4,
+      gender: "",
+      arrival_date: "09/10/2023",
+      date_of_death: "",
+      breeding_date: "",
+    },
+    {
+      id_fish: 13,
+      id_race: 4,
+      gender: "",
+      arrival_date: "09/10/2023",
+      date_of_death: "",
+      breeding_date: "",
+    },
+    {
+      id_fish: 14,
+      id_race: 4,
+      gender: "",
+      arrival_date: "09/10/2023",
+      date_of_death: "",
+      breeding_date: "",
+    },
+    {
+      id_fish: 15,
+      id_race: 4,
+      gender: "",
+      arrival_date: "09/10/2023",
+      date_of_death: "",
+      breeding_date: "",
+    },
+    {
+      id_fish: 16,
+      id_race: 4,
+      gender: "",
+      arrival_date: "09/10/2023",
+      date_of_death: "",
+      breeding_date: "",
+    },
+    {
+      id_fish: 17,
+      id_race: 4,
+      gender: "",
+      arrival_date: "09/10/2023",
+      date_of_death: "",
+      breeding_date: "",
+    },
+    {
+      id_fish: 18,
+      id_race: 3,
+      gender: "Female",
+      arrival_date: "09/14/2023",
+      date_of_death: "",
+      breeding_date: "",
+    },
+    {
+      id_fish: 19,
+      id_race: 2,
+      gender: "Female",
+      arrival_date: "09/14/2023",
+      date_of_death: "",
+      breeding_date: "",
+    },
+    {
+      id_fish: 20,
+      id_race: 0,
+      gender: "Female",
+      arrival_date: "09/14/2023",
+      date_of_death: "",
+      breeding_date: "",
+    },
+    {
+      id_fish: 21,
+      id_race: 1,
+      gender: "Female",
+      arrival_date: "09/14/2023",
+      date_of_death: "",
+      breeding_date: "",
+    },
+    {
+      id_fish: 22,
+      id_race: 1,
+      gender: "Macho",
+      arrival_date: "09/14/2023",
       date_of_death: "",
       breeding_date: "",
     },
   ]);
 
-  const [measurement, setMeasurement] = useState([
+  const [race, setRace] = useState([
+    {
+      id_race: 0,
+      id_sp: 2,
+      name: "Assortead guppy",
+      characteristics: "",
+    },
+    {
+      id_race: 1,
+      id_sp: 2,
+      name: "Guppy Flame",
+      characteristics: "",
+    },
+    {
+      id_race: 2,
+      id_sp: 2,
+      name: "Guppy Emerald Blue and Red Grass",
+      characteristics: "",
+    },
+    {
+      id_race: 3,
+      id_sp: 2,
+      name: "Guppy Koi Tuxedo",
+      characteristics: "",
+    },
+    {
+      id_race: 4,
+      id_sp: 2,
+      name: "Assortead guppy children",
+      characteristics: "",
+    },
+    {
+      id_race: 5,
+      id_sp: 1,
+      name: "Pygmy corydoras",
+      characteristics: "",
+    },
+    {
+      id_race: 6,
+      id_sp: 0,
+      name: "Siamese algae-eater",
+      characteristics: "",
+    },
+  ]);
+
+  const [measurements, setMeasurements] = useState([
     {
       id: 0,
       kind: "Changing the water",
       measurement: [
         {
           id: 0,
-          date: "27/09/2023",
+          date: "09/27/2023",
           value: "",
           observation: "Changing the pool to this 50l aquarium",
         },
@@ -184,7 +327,30 @@ const ManagerPages = () => {
     },
   ]);
 
-  return <></>;
+  const addFish = (id_race, gender, arrivalDate, dateOfDeath, breedindDate) => {
+    const idFish = fish[fish.length - 1].id_fish + 1;
+    console.log("jhgf");
+    const newFish = {
+      id_fish: idFish,
+      id_race: id_race,
+      gender: gender,
+      arrival_date: arrivalDate,
+      date_of_death: dateOfDeath,
+      breeding_date: breedindDate,
+    };
+    setFish([...fish, newFish]);
+  };
+
+  return (
+    <>
+      <AddAnimalsPage
+        allFamilies={families}
+        allSpecies={species}
+        allRace={race}
+        addfish={addFish}
+      />
+    </>
+  );
 };
 
 export default ManagerPages;

@@ -1,10 +1,15 @@
 import React from "react";
 import AddFish from "../components/AddFish";
 
-const AddAnimalsPage = () => {
+const AddAnimalsPage = ({ allFamilies, allSpecies, addfish, allRace }) => {
   return (
     <>
-      <AddFish />
+      <AddFish
+        nameFamily={allFamilies}
+        nameSpecie={allSpecies}
+        saveFish={addfish}
+        nameRace={allRace}
+      />
     </>
   );
 };

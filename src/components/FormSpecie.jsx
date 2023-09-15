@@ -3,86 +3,89 @@ import React from "react";
 const FormSpecie = () => {
   return (
     <>
-      <div class="container">
+      <div className="container">
         <form>
-          <div class="row mb-3">
-            <div class="mb-3">
-              <label for="formGroupExampleInput" class="form-label">
+          <div className="row mb-3">
+            <div className="mb-3">
+              <label htmlFor="formGroupExampleInput" className="form-label">
                 Family:
               </label>
-              <div class="col-sm-10">
+              <div className="col-sm-10">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="formGroupExampleInput"
                   placeholder="Name"
                 />
               </div>
             </div>
           </div>
-          <div class="row mb-3">
-            <div class="mb-3">
-              <label for="formGroupExampleInput2" class="form-label">
+          <div className="row mb-3">
+            <div className="mb-3">
+              <label htmlFor="formGroupExampleInput2" className="form-label">
                 Name specie:
               </label>
-              <div class="col-sm-10">
+              <div className="col-sm-10">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="formGroupExampleInput2"
                   placeholder="Name specie"
                 />
               </div>
             </div>
           </div>
-          <div class="row mb-3">
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">
-                Example textarea
+          <div className="row mb-3">
+            <div className="mb-3">
+              <label
+                htmlFor="exampleFormControlTextarea1"
+                className="form-label"
+              >
+                Characteristics:
               </label>
-              <div class="col-sm-10">
+              <div className="col-sm-10">
                 <textarea
-                  class="form-control"
+                  className="form-control"
                   id="exampleFormControlTextarea1"
                   rows="3"
                 ></textarea>
               </div>
             </div>
-            <div class="row mb-3">
-              <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">
+            <div className="row mb-3">
+              <div className="mb-3">
+                <label htmlFor="formGroupExampleInput" className="form-label">
                   Water temperature:
                 </label>
-                <div class="row mb-3">
-                  <div class="col-sm-2">
+                <div className="row mb-3">
+                  <div className="col-sm-2">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="formGroupExampleInput"
-                      placeholder="Range temperature"
+                      placeholder="°C"
                     />
                   </div>
                   -
-                  <div class="col-sm-2">
+                  <div className="col-sm-2">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="formGroupExampleInput"
-                      placeholder="Range temperature"
+                      placeholder="°C"
                     />
                   </div>
                 </div>
               </div>
             </div>
-            <div class="row mb-3">
-              <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">
+            <div className="row mb-3">
+              <div className="mb-3">
+                <label htmlFor="formGroupExampleInput2" className="form-label">
                   Water ph:
                 </label>
-                <div class="col-sm-10">
+                <div className="col-sm-10">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="formGroupExampleInput2"
                     placeholder="Range ph"
                   />

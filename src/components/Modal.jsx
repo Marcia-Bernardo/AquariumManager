@@ -1,13 +1,12 @@
 import React from "react";
 
-const AddFamily = ({ children, title, id }) => {
-  console.log(title);
+const Modal = ({ children, title, id }) => {
   return (
     <>
       <div
         className="modal fade"
         id={`exampleModal${id}`}
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
@@ -44,4 +43,4 @@ const AddFamily = ({ children, title, id }) => {
   );
 };
 
-export default AddFamily;
+export default Modal;
