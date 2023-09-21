@@ -1,22 +1,41 @@
 import React from "react";
 
-const FormSpecie = () => {
+const FormSpecie = ({ listNameFamily, state, saveState }) => {
+  const updateState = (e) => {
+    console.log(e.target.value);
+    state[e.target.id] = e.target.value;
+
+    saveState({ ...state });
+  };
   return (
     <>
       <div className="container">
         <form>
           <div className="row mb-3">
             <div className="mb-3">
-              <label htmlFor="formGroupExampleInput" className="form-label">
-                Family:
-              </label>
               <div className="col-sm-10">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="formGroupExampleInput"
-                  placeholder="Name"
-                />
+                <label htmlFor="validationDefault04" className="form-label">
+                  Family
+                </label>
+
+                <select
+                  className="form-select"
+                  aria-label="Default select example"
+                >
+                  <option value="">Select a family</option>
+                  {listNameFamily.map((family) => {
+                    return (
+                      <option
+                        value={family.id}
+                        key={family.id}
+                        id="id_family"
+                        onClick={(e) => updateState(e)}
+                      >
+                        {family.name}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
             </div>
           </div>
@@ -29,8 +48,9 @@ const FormSpecie = () => {
                 <input
                   type="text"
                   className="form-control"
-                  id="formGroupExampleInput2"
+                  id="name"
                   placeholder="Name specie"
+                  onChange={(e) => updateState(e)}
                 />
               </div>
             </div>
@@ -46,8 +66,9 @@ const FormSpecie = () => {
               <div className="col-sm-10">
                 <textarea
                   className="form-control"
-                  id="exampleFormControlTextarea1"
+                  id="characteristics"
                   rows="3"
+                  onChange={(e) => updateState(e)}
                 ></textarea>
               </div>
             </div>
@@ -61,8 +82,9 @@ const FormSpecie = () => {
                     <input
                       type="text"
                       className="form-control"
-                      id="formGroupExampleInput"
+                      id="minT"
                       placeholder="°C"
+                      onChange={(e) => updateState(e)}
                     />
                   </div>
                   -
@@ -70,8 +92,9 @@ const FormSpecie = () => {
                     <input
                       type="text"
                       className="form-control"
-                      id="formGroupExampleInput"
+                      id="maxT"
                       placeholder="°C"
+                      onChange={(e) => updateState(e)}
                     />
                   </div>
                 </div>
@@ -86,8 +109,9 @@ const FormSpecie = () => {
                   <input
                     type="text"
                     className="form-control"
-                    id="formGroupExampleInput2"
+                    id="ph"
                     placeholder="Range ph"
+                    onChange={(e) => updateState(e)}
                   />
                 </div>
               </div>
