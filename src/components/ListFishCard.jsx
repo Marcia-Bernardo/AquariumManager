@@ -7,7 +7,7 @@ const ListFishCard = ({ listNameRace, listFish }) => {
       <div className="container mt-5">
         <div className="row">
           {/* <div className="col-auto"> */}
-          <div className="m-3">
+          <div className="mt-5 mb-4">
             <h1>List Fish</h1>
           </div>
           {/* </div> */}

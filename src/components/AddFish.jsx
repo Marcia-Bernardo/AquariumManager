@@ -63,7 +63,12 @@ const AddFish = ({
   return (
     <>
       <div className="container mt-5">
-        <h1>Add Fish</h1>
+        <div className="row">
+          {/* <div className="col-auto"> */}
+          <div className="mt-5 mb-2">
+            <h1>Add Fish</h1>
+          </div>
+        </div>
         <div className="row align-items-start">
           <div className="col-4 mt-3">
             <label htmlFor="validationDefault04" className="form-label">

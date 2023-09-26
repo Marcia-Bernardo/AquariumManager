@@ -18,12 +18,13 @@ const ListRace = ({
 
   return (
     <>
-      <div className="container  mt-5">
-        <div className="row">
+      <div className="container mt-5">
+        <div className="row align-items-start">
           <div className="col-auto">
-            <div className="m-3"></div>
-            <h1>List Race</h1>
-            <table class="table">
+            <div className="mt-5 mb-5">
+              <h1>List Race</h1>
+            </div>
+            <table className="table ">
               <thead>
                 <tr>
                   <th scope="col">Name Family </th>

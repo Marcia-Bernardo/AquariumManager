@@ -19,6 +19,7 @@ const FishDetails = ({
         const family = listNameFamily.find((family) => {
           return family.id === specie.id_family;
         });
+
         return (
           <div className="container mt-5">
             <div className="row align-items-start">
@@ -34,10 +35,10 @@ const FishDetails = ({
                   height="200px"
                 />
               </div>
-              <div className="col-4 mt-5">
-                <div className="m-5">
+              <div className="col-7 ">
+                <div className="ms-5 mb-3 mt-2">
                   <h5>
-                    <span style={{ fontWeight: "bold" }}>Race name:</span>{" "}
+                    <span style={{ fontWeight: "bold" }}>Race name: </span>
                     {race.name}
                   </h5>
                   <p>
@@ -45,37 +46,51 @@ const FishDetails = ({
                     {fish.generation}
                   </p>
                 </div>
-              </div>
-            </div>
-            <div class="row align-items-start">
-              <div className="col-4 ">
-                <div className="m-3">
+
+                <div className="ms-5">
                   <p>
-                    <span style={{ fontWeight: "bold" }}>Arrival date:</span>
-                    {fish.arrival_date}
-                  </p>
-                  <p>
-                    <span style={{ fontWeight: "bold" }}>Breeding date:</span>
-                    {fish.breeding_date}
+                    <span style={{ fontWeight: "bold" }}>
+                      Characteristics:{" "}
+                    </span>
+                    {race.characteristics}
                   </p>
                 </div>
               </div>
-              <div className="col-4 ">
-                <div className="m-3">
+              <div className="col-3 ">
+                <div></div>
+              </div>
+
+              <div className="col-4">
+                <div className="ms-5">
                   <p>
-                    <span style={{ fontWeight: "bold" }}>Date of death:</span>
+                    <span style={{ fontWeight: "bold" }}>Arrival date: </span>
+                    {fish.arrival_date}
+                  </p>
+                  {fish.gender === "Female" && (
+                    <p>
+                      <span style={{ fontWeight: "bold" }}>Breeding date:</span>
+                      {fish.breeding_date}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <div className="col-4 ">
+                <div className="ms-5">
+                  <p>
+                    <span style={{ fontWeight: "bold" }}>Date of death: </span>
                     {fish.date_of_death}
                   </p>
                   <p>
-                    <span style={{ fontWeight: "bold" }}>Gender:</span>
+                    <span style={{ fontWeight: "bold" }}>Gender: </span>
                     {fish.gender}
                   </p>
                 </div>
               </div>
             </div>
+            <hr />
             <div class="row align-items-center">
               <div class="col-8">
-                <div className="text-center mb-3 mt-3">
+                <div className="text-center mb-3">
                   <h5>
                     <span style={{ fontWeight: "bold" }}>Specie Name: </span>
                     {specie.name}
@@ -89,13 +104,13 @@ const FishDetails = ({
                   <span style={{ fontWeight: "bold" }}>
                     Minimum temperature:{" "}
                   </span>
-                  {specie.minTemp}{" "}
+                  {specie.minTemp} °C
                 </p>
                 <p>
                   <span style={{ fontWeight: "bold" }}>
                     Maximum temperature:{" "}
                   </span>
-                  {specie.maxTemp}
+                  {specie.maxTemp} °C
                 </p>
                 <p>
                   <span style={{ fontWeight: "bold" }}>pH of water: </span>
@@ -103,9 +118,10 @@ const FishDetails = ({
                 </p>
               </div>
             </div>
-            <div class="row mt-3">
+            <hr />
+            <div class="row ">
               <div class="col-8">
-                <div className="text-center mb-3 mt-3">
+                <div className="text-center mb-3">
                   <h5>
                     <span style={{ fontWeight: "bold" }}>Family Name: </span>
                     {family.name}

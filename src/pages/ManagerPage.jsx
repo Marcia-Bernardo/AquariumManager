@@ -87,7 +87,8 @@ const ManagerPage = ({ showPage }) => {
       id_race: 3,
       id_sp: 2,
       name: "Guppy Koi Tuxedo",
-      characteristics: "",
+      characteristics:
+        "The Koi Tuxedo has a red head and red fins with a black base color. The males are usually more intensely coloured than the females and have larger fins. They also have a gonopodium converted to a mating organ, which is a pen-shaped anal fin. Females grow slightly larger and have a more sail-shaped anal fin.",
       img: "koi.jpeg",
     },
     {

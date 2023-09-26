@@ -10,7 +10,7 @@ const ShowFish = ({ listNameRace, listFish, idRace }) => {
     <>
       <div className="container mt-5">
         <div className="row">
-          <div className="m-3">
+          <div className="mt-5 mb-5">
             <h1>Show Fish</h1>
           </div>
           <CardFish listFish={filterFish} listNameRace={listNameRace} />

@@ -13,12 +13,14 @@ const Details = ({
   });
 
   return (
-    <FishDetails
-      listNameFamily={listNameFamily}
-      listNameSpecie={listNameSpecie}
-      listNameRace={listNameRace}
-      listFish={filterFish}
-    />
+    <>
+      <FishDetails
+        listNameFamily={listNameFamily}
+        listNameSpecie={listNameSpecie}
+        listNameRace={listNameRace}
+        listFish={filterFish}
+      />
+    </>
   );
 };
 
