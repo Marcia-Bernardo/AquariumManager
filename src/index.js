@@ -19,15 +19,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/addFish",
-        element: <ManagerPage showPage="add" />,
+        element: <ManagerPage showPage="addFish" />,
+      },
+      {
+        path: "/listRace",
+        element: <ManagerPage showPage="listRace" />,
       },
       {
         path: "/listFish",
-        element: <ManagerPage showPage="list" />,
+        element: <ManagerPage showPage="listFish" />,
       },
       {
-        path: "/listCard",
-        element: <ManagerPage showPage="listCard" />,
+        path: "/showFish/:id",
+        element: <ManagerPage showPage="showFish" />,
+      },
+      {
+        path: "/fishDetails/:id",
+        element: <ManagerPage showPage="fishDetails" />,
       },
     ],
   },
