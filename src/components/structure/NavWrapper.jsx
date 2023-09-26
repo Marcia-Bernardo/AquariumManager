@@ -7,7 +7,10 @@ const NavWrapper = () => {
   return (
     <>
       <NavBar />
-      <Outlet />
+
+      <div className="container" style={{ marginBottom: "6rem" }}>
+        <Outlet />
+      </div>
       <Footer />
     </>
   );

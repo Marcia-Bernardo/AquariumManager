@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import AddFish from "../components/AddFish";
 import ListRace from "../components/ListRace";
 import ListFishCard from "./../components/ListFishCard";
+import ShowFish from "../components/ShowFish";
+import { useParams } from "react-router-dom";
+import Details from "../components/Details";
 
 const ManagerPage = ({ showPage }) => {
   const [families, setFamilies] = useState([
@@ -58,6 +61,59 @@ const ManagerPage = ({ showPage }) => {
     },
   ]);
 
+  const [race, setRace] = useState([
+    {
+      id_race: 0,
+      id_sp: 2,
+      name: "Assortead guppy",
+      characteristics: "",
+      img: "guppy.jpeg",
+    },
+    {
+      id_race: 1,
+      id_sp: 2,
+      name: "Guppy Flame",
+      characteristics: "",
+      img: "guppyFlame.jpeg",
+    },
+    {
+      id_race: 2,
+      id_sp: 2,
+      name: "Guppy Emerald Blue and Red Grass",
+      characteristics: "",
+      img: "GuppyEmeraldBlue.jpeg",
+    },
+    {
+      id_race: 3,
+      id_sp: 2,
+      name: "Guppy Koi Tuxedo",
+      characteristics:
+        "The Koi Tuxedo has a red head and red fins with a black base color. The males are usually more intensely coloured than the females and have larger fins. They also have a gonopodium converted to a mating organ, which is a pen-shaped anal fin. Females grow slightly larger and have a more sail-shaped anal fin.",
+      img: "koi.jpeg",
+    },
+    {
+      id_race: 4,
+      id_sp: 2,
+      name: "Assortead guppy children",
+      characteristics: "",
+      img: "levinos.jpeg",
+    },
+    {
+      id_race: 5,
+      id_sp: 1,
+      name: "Pygmy corydoras",
+      characteristics: "",
+      img: "Pygmy.jpeg",
+    },
+    {
+      id_race: 6,
+      id_sp: 0,
+      name: "Siamese algae-eater",
+      characteristics: "",
+      img: "Siamese.jpeg",
+    },
+  ]);
+
   const [fish, setFish] = useState([
     {
       id_fish: 0,
@@ -111,7 +167,7 @@ const ManagerPage = ({ showPage }) => {
       generation: 1,
       gender: "Female",
       arrival_date: "08/15/2023",
-      date_of_death: "",
+      date_of_death: "09/21/2023",
       breeding_date: "09/10/2023",
     },
     {
@@ -137,8 +193,8 @@ const ManagerPage = ({ showPage }) => {
     {
       id_fish: 8,
       id_race: 4,
-      generation: 1,
-      gender: "Male",
+      generation: 2,
+      gender: "",
       arrival_date: "09/06/2023",
       date_of_death: "",
       breeding_date: "",
@@ -146,8 +202,8 @@ const ManagerPage = ({ showPage }) => {
     {
       id_fish: 9,
       id_race: 4,
-      generation: 1,
-      gender: "Female",
+      generation: 2,
+      gender: "",
       arrival_date: "09/06/2023",
       date_of_death: "",
       breeding_date: "",
@@ -271,58 +327,6 @@ const ManagerPage = ({ showPage }) => {
     },
   ]);
 
-  const [race, setRace] = useState([
-    {
-      id_race: 0,
-      id_sp: 2,
-      name: "Assortead guppy",
-      characteristics: "",
-      img: "guppy.jpeg",
-    },
-    {
-      id_race: 1,
-      id_sp: 2,
-      name: "Guppy Flame",
-      characteristics: "",
-      img: "guppyFlame.jpeg",
-    },
-    {
-      id_race: 2,
-      id_sp: 2,
-      name: "Guppy Emerald Blue and Red Grass",
-      characteristics: "",
-      img: "GuppyEmeraldBlue.jpeg",
-    },
-    {
-      id_race: 3,
-      id_sp: 2,
-      name: "Guppy Koi Tuxedo",
-      characteristics: "",
-      img: "koi.jpeg",
-    },
-    {
-      id_race: 4,
-      id_sp: 2,
-      name: "Assortead guppy children",
-      characteristics: "",
-      img: "levinos.jpeg",
-    },
-    {
-      id_race: 5,
-      id_sp: 1,
-      name: "Pygmy corydoras",
-      characteristics: "",
-      img: "Pygmy.jpeg",
-    },
-    {
-      id_race: 6,
-      id_sp: 0,
-      name: "Siamese algae-eater",
-      characteristics: "",
-      img: "Siamese.jpeg",
-    },
-  ]);
-
   const [measurements, setMeasurements] = useState([
     {
       id: 0,
@@ -420,7 +424,9 @@ const ManagerPage = ({ showPage }) => {
     setRace([...race, newRace]);
   };
 
-  if (showPage === "add") {
+  const { id } = useParams();
+
+  if (showPage === "addFish") {
     return (
       <>
         <AddFish
@@ -435,7 +441,7 @@ const ManagerPage = ({ showPage }) => {
       </>
     );
   }
-  if (showPage === "list") {
+  if (showPage === "listRace") {
     return (
       <>
         <ListRace
@@ -447,10 +453,31 @@ const ManagerPage = ({ showPage }) => {
       </>
     );
   }
-  if (showPage === "listCard") {
+  if (showPage === "listFish") {
     return (
       <>
         <ListFishCard listNameRace={race} listFish={fish} />
+      </>
+    );
+  }
+
+  if (showPage === "showFish") {
+    return (
+      <>
+        <ShowFish listNameRace={race} listFish={fish} idRace={id} />
+      </>
+    );
+  }
+  if (showPage === "fishDetails") {
+    return (
+      <>
+        <Details
+          listNameFamily={families}
+          listNameSpecie={species}
+          listNameRace={race}
+          listFish={fish}
+          idFish={id}
+        />
       </>
     );
   }

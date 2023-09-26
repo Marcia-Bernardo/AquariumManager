@@ -6,12 +6,14 @@ const ListFishCard = ({ listNameRace, listFish }) => {
     <>
       <div className="container mt-5">
         <div className="row">
-          <div className="col">
-            <div className="m-4">
-              <h1>List Fish</h1>
-            </div>
-            <CardFish listNameRace={listNameRace} listFish={listFish} />
+          {/* <div className="col-auto"> */}
+          <div className="mt-5 mb-4">
+            <h1>List Fish</h1>
           </div>
+          {/* </div> */}
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <CardFish listNameRace={listNameRace} listFish={listFish} />
         </div>
       </div>
     </>
