@@ -54,7 +54,7 @@ const Home = () => {
                   grass varieties.
                 </p>
                 <p>
-                  <Link className="btn btn-lg btn-primary" to="/">
+                  <Link className="btn btn-lg btn-primary" to="">
                     Guppy breeds
                   </Link>
                 </p>

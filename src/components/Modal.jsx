@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Modal = ({ children, title, id }) => {
+const Modal = ({ children, title, id, saveForm }) => {
+  const [state, setState] = useState({});
+
   return (
     <>
       <div
@@ -23,7 +25,12 @@ const Modal = ({ children, title, id }) => {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">{children}</div>
+            <div className="modal-body">
+              {React.cloneElement(children, {
+                saveState: setState,
+                state: state,
+              })}
+            </div>
             <div className="modal-footer">
               <button
                 type="button"
@@ -32,7 +39,11 @@ const Modal = ({ children, title, id }) => {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => saveForm(state)}
+              >
                 Add
               </button>
             </div>

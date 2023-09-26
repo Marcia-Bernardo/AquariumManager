@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import AddAnimalsPage from "./AddAnimalsPage";
+import AddFish from "../components/AddFish";
+import ListRace from "../components/ListRace";
+import ListFishCard from "./../components/ListFishCard";
 
-const ManagerPages = () => {
+const ManagerPage = ({ showPage }) => {
   const [families, setFamilies] = useState([
     {
       id: 0,
@@ -30,7 +32,8 @@ const ManagerPages = () => {
       name: "Crossocheilus oblongus",
       characteristics:
         "Since they cannot stay in mid water, they love driftwood/rocks and some plants that can support their weight to rest on. This species that prefers Java moss to red algae, and an undescribed species of Crossocheilus.",
-      water_temperatures: "24 - 26 °C",
+      minTemp: 24,
+      maxTemp: 26,
       water_ph: "6.5 - 8.0",
     },
     {
@@ -39,7 +42,8 @@ const ManagerPages = () => {
       name: "Corydoras pygmaeus",
       characteristics:
         " he pygmy corydoras is widely distributed in inland waters in Peru in tributaries of the Nanay River, in Ecuador in tributaries of the Aguarico River, and in western Brazil in tributaries of the Madeira River. It feeds on worms, benthic crustaceans, insects, and plant matter. ",
-      water_temperatures: "22 - 26 °C",
+      minTemp: 22,
+      maxTemp: 26,
       water_ph: "6.0 - 8.0",
     },
     {
@@ -48,7 +52,8 @@ const ManagerPages = () => {
       name: "Poecilia reticulata",
       characteristics:
         "Guppies originate from northeast South America, but have been introduced to many environments and are now found all over the world. Male guppies (5cm), which are smaller than females (7 cm), have ornamental caudal and dorsal fins. Wild guppies generally feed on a variety of food sources, including benthic algae and aquatic insect larvae.",
-      water_temperatures: "25-27 °C",
+      minTemp: 25,
+      maxTemp: 27,
       water_ph: "",
     },
   ]);
@@ -57,6 +62,7 @@ const ManagerPages = () => {
     {
       id_fish: 0,
       id_race: 6,
+      generation: 1,
       gender: "Male",
       arrival_date: "09/06/2023",
       date_of_death: "",
@@ -65,6 +71,7 @@ const ManagerPages = () => {
     {
       id_fish: 1,
       id_race: 5,
+      generation: 1,
       gender: "Male",
       arrival_date: "09/06/2023",
       date_of_death: "",
@@ -73,6 +80,7 @@ const ManagerPages = () => {
     {
       id_fish: 2,
       id_race: 5,
+      generation: 1,
       gender: "Male",
       arrival_date: "09/06/2023",
       date_of_death: "",
@@ -81,6 +89,7 @@ const ManagerPages = () => {
     {
       id_fish: 3,
       id_race: 5,
+      generation: 1,
       gender: "Male",
       arrival_date: "09/06/2023",
       date_of_death: "",
@@ -89,6 +98,7 @@ const ManagerPages = () => {
     {
       id_fish: 4,
       id_race: 5,
+      generation: 1,
       gender: "Male",
       arrival_date: "09/06/2023",
       date_of_death: "",
@@ -98,6 +108,7 @@ const ManagerPages = () => {
       id_fish: 5,
       id_sp: 2,
       id_race: 0,
+      generation: 1,
       gender: "Female",
       arrival_date: "08/15/2023",
       date_of_death: "",
@@ -107,6 +118,7 @@ const ManagerPages = () => {
       id_fish: 6,
       id_sp: 2,
       id_race: 0,
+      generation: 1,
       gender: "Female",
       arrival_date: "08/15/2023",
       date_of_death: "",
@@ -116,6 +128,7 @@ const ManagerPages = () => {
       id_fish: 7,
       id_sp: 2,
       id_race: 3,
+      generation: 1,
       gender: "Male",
       arrival_date: "09/06/2023",
       date_of_death: "",
@@ -124,6 +137,7 @@ const ManagerPages = () => {
     {
       id_fish: 8,
       id_race: 4,
+      generation: 1,
       gender: "Male",
       arrival_date: "09/06/2023",
       date_of_death: "",
@@ -132,6 +146,7 @@ const ManagerPages = () => {
     {
       id_fish: 9,
       id_race: 4,
+      generation: 1,
       gender: "Female",
       arrival_date: "09/06/2023",
       date_of_death: "",
@@ -140,6 +155,7 @@ const ManagerPages = () => {
     {
       id_fish: 10,
       id_race: 4,
+      generation: 2,
       gender: "",
       arrival_date: "09/10/2023",
       date_of_death: "",
@@ -148,6 +164,7 @@ const ManagerPages = () => {
     {
       id_fish: 11,
       id_race: 4,
+      generation: 2,
       gender: "",
       arrival_date: "09/10/2023",
       date_of_death: "",
@@ -156,6 +173,7 @@ const ManagerPages = () => {
     {
       id_fish: 12,
       id_race: 4,
+      generation: 2,
       gender: "",
       arrival_date: "09/10/2023",
       date_of_death: "",
@@ -164,6 +182,7 @@ const ManagerPages = () => {
     {
       id_fish: 13,
       id_race: 4,
+      generation: 2,
       gender: "",
       arrival_date: "09/10/2023",
       date_of_death: "",
@@ -172,6 +191,7 @@ const ManagerPages = () => {
     {
       id_fish: 14,
       id_race: 4,
+      generation: 2,
       gender: "",
       arrival_date: "09/10/2023",
       date_of_death: "",
@@ -180,6 +200,7 @@ const ManagerPages = () => {
     {
       id_fish: 15,
       id_race: 4,
+      generation: 2,
       gender: "",
       arrival_date: "09/10/2023",
       date_of_death: "",
@@ -188,6 +209,7 @@ const ManagerPages = () => {
     {
       id_fish: 16,
       id_race: 4,
+      generation: 2,
       gender: "",
       arrival_date: "09/10/2023",
       date_of_death: "",
@@ -196,6 +218,7 @@ const ManagerPages = () => {
     {
       id_fish: 17,
       id_race: 4,
+      generation: 2,
       gender: "",
       arrival_date: "09/10/2023",
       date_of_death: "",
@@ -204,6 +227,7 @@ const ManagerPages = () => {
     {
       id_fish: 18,
       id_race: 3,
+      generation: 1,
       gender: "Female",
       arrival_date: "09/14/2023",
       date_of_death: "",
@@ -212,6 +236,7 @@ const ManagerPages = () => {
     {
       id_fish: 19,
       id_race: 2,
+      generation: 1,
       gender: "Female",
       arrival_date: "09/14/2023",
       date_of_death: "",
@@ -220,6 +245,7 @@ const ManagerPages = () => {
     {
       id_fish: 20,
       id_race: 0,
+      generation: 1,
       gender: "Female",
       arrival_date: "09/14/2023",
       date_of_death: "",
@@ -228,6 +254,7 @@ const ManagerPages = () => {
     {
       id_fish: 21,
       id_race: 1,
+      generation: 1,
       gender: "Female",
       arrival_date: "09/14/2023",
       date_of_death: "",
@@ -236,6 +263,7 @@ const ManagerPages = () => {
     {
       id_fish: 22,
       id_race: 1,
+      generation: 1,
       gender: "Macho",
       arrival_date: "09/14/2023",
       date_of_death: "",
@@ -249,42 +277,49 @@ const ManagerPages = () => {
       id_sp: 2,
       name: "Assortead guppy",
       characteristics: "",
+      img: "guppy.jpeg",
     },
     {
       id_race: 1,
       id_sp: 2,
       name: "Guppy Flame",
       characteristics: "",
+      img: "guppyFlame.jpeg",
     },
     {
       id_race: 2,
       id_sp: 2,
       name: "Guppy Emerald Blue and Red Grass",
       characteristics: "",
+      img: "GuppyEmeraldBlue.jpeg",
     },
     {
       id_race: 3,
       id_sp: 2,
       name: "Guppy Koi Tuxedo",
       characteristics: "",
+      img: "koi.jpeg",
     },
     {
       id_race: 4,
       id_sp: 2,
       name: "Assortead guppy children",
       characteristics: "",
+      img: "levinos.jpeg",
     },
     {
       id_race: 5,
       id_sp: 1,
       name: "Pygmy corydoras",
       characteristics: "",
+      img: "Pygmy.jpeg",
     },
     {
       id_race: 6,
       id_sp: 0,
       name: "Siamese algae-eater",
       characteristics: "",
+      img: "Siamese.jpeg",
     },
   ]);
 
@@ -319,20 +354,27 @@ const ManagerPages = () => {
       measurement: [
         {
           id: 0,
-          date: "",
-          value: "",
+          date: "09/15/2023",
+          value: "6.8",
           observation: "",
         },
       ],
     },
   ]);
 
-  const addFish = (id_race, gender, arrivalDate, dateOfDeath, breedindDate) => {
+  const addFish = (
+    id_race,
+    generation,
+    gender,
+    arrivalDate,
+    dateOfDeath,
+    breedindDate
+  ) => {
     const idFish = fish[fish.length - 1].id_fish + 1;
-    console.log("jhgf");
     const newFish = {
       id_fish: idFish,
       id_race: id_race,
+      generation: generation,
       gender: gender,
       arrival_date: arrivalDate,
       date_of_death: dateOfDeath,
@@ -341,16 +383,76 @@ const ManagerPages = () => {
     setFish([...fish, newFish]);
   };
 
-  return (
-    <>
-      <AddAnimalsPage
-        allFamilies={families}
-        allSpecies={species}
-        allRace={race}
-        addfish={addFish}
-      />
-    </>
-  );
-};
+  const addFamily = (data) => {
+    const idFamily = families[families.length - 1].id + 1;
 
-export default ManagerPages;
+    const newFamily = {
+      id: idFamily,
+      name: data.name,
+      characteristics: data.characteristics,
+    };
+    setFamilies([...families, newFamily]);
+  };
+
+  const addSpecie = (data) => {
+    const idSpecie = species[species.length - 1].id_sp + 1;
+    const newSpecie = {
+      id_sp: idSpecie,
+      id_family: parseInt(data.id_family),
+      name: data.name,
+      characteristics: data.characteristics,
+      minTemp: parseInt(data.minT),
+      maxTemp: parseInt(data.maxT),
+      water_ph: parseInt(data.ph),
+    };
+    setSpecies([...species, newSpecie]);
+  };
+
+  const addRace = (data) => {
+    const idRace = race[race.length - 1].id_race + 1;
+
+    const newRace = {
+      id_race: idRace,
+      id_sp: parseInt(data.id_sp),
+      name: data.name,
+      characteristics: data.characteristics,
+    };
+    setRace([...race, newRace]);
+  };
+
+  if (showPage === "add") {
+    return (
+      <>
+        <AddFish
+          listNameFamily={families}
+          listNameSpecie={species}
+          saveFish={addFish}
+          listNameRace={race}
+          addFamily={addFamily}
+          addSpecie={addSpecie}
+          addRace={addRace}
+        />
+      </>
+    );
+  }
+  if (showPage === "list") {
+    return (
+      <>
+        <ListRace
+          listNameFamily={families}
+          listNameSpecie={species}
+          listNameRace={race}
+          listFish={fish}
+        />
+      </>
+    );
+  }
+  if (showPage === "listCard") {
+    return (
+      <>
+        <ListFishCard listNameRace={race} listFish={fish} />
+      </>
+    );
+  }
+};
+export default ManagerPage;

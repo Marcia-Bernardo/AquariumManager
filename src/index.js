@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import NavWrapper from "./components/structure/NavWrapper";
-import ManagerPages from "./pages/ManagerPages";
+import ManagerPage from "./pages/ManagerPage";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +19,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/addFish",
-        element: <ManagerPages />,
+        element: <ManagerPage showPage="add" />,
+      },
+      {
+        path: "/listFish",
+        element: <ManagerPage showPage="list" />,
+      },
+      {
+        path: "/listCard",
+        element: <ManagerPage showPage="listCard" />,
       },
     ],
   },
