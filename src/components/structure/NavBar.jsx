@@ -71,7 +71,7 @@ const NavBar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#">
+                    <Link className="dropdown-item" to="/listMeasurement">
                       List
                     </Link>
                   </li>

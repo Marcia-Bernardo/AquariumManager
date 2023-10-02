@@ -5,6 +5,8 @@ import ListFishCard from "./../components/ListFishCard";
 import ShowFish from "../components/ShowFish";
 import { useParams } from "react-router-dom";
 import Details from "../components/Details";
+import ListMeasurements from "../components/listMeasurements";
+import Home from "../components/Home";
 
 const ManagerPage = ({ showPage }) => {
   const [families, setFamilies] = useState([
@@ -128,16 +130,16 @@ const ManagerPage = ({ showPage }) => {
       id_fish: 1,
       id_race: 5,
       generation: 1,
-      gender: "Male",
+      gender: "",
       arrival_date: "09/06/2023",
-      date_of_death: "",
+      date_of_death: "09/21/2023",
       breeding_date: "",
     },
     {
       id_fish: 2,
       id_race: 5,
       generation: 1,
-      gender: "Male",
+      gender: "",
       arrival_date: "09/06/2023",
       date_of_death: "",
       breeding_date: "",
@@ -146,7 +148,7 @@ const ManagerPage = ({ showPage }) => {
       id_fish: 3,
       id_race: 5,
       generation: 1,
-      gender: "Male",
+      gender: "",
       arrival_date: "09/06/2023",
       date_of_death: "",
       breeding_date: "",
@@ -155,7 +157,7 @@ const ManagerPage = ({ showPage }) => {
       id_fish: 4,
       id_race: 5,
       generation: 1,
-      gender: "Male",
+      gender: "",
       arrival_date: "09/06/2023",
       date_of_death: "",
       breeding_date: "",
@@ -167,7 +169,7 @@ const ManagerPage = ({ showPage }) => {
       generation: 1,
       gender: "Female",
       arrival_date: "08/15/2023",
-      date_of_death: "09/21/2023",
+      date_of_death: "",
       breeding_date: "09/10/2023",
     },
     {
@@ -287,7 +289,7 @@ const ManagerPage = ({ showPage }) => {
       gender: "Female",
       arrival_date: "09/14/2023",
       date_of_death: "",
-      breeding_date: "",
+      breeding_date: "09/23/2023",
     },
     {
       id_fish: 19,
@@ -334,32 +336,105 @@ const ManagerPage = ({ showPage }) => {
       measurement: [
         {
           id: 0,
-          date: "09/27/2023",
-          value: "",
+          date: "8/27/2023",
+          value: 50,
           observation: "Changing the pool to this 50l aquarium",
+        },
+        {
+          id: 1,
+          date: "9/16/2023",
+          value: 10,
+          observation: "Changed 20% the water  to this 50l aquarium",
         },
       ],
     },
     {
       id: 1,
-      kind: "water_temperatures",
+      kind: "Water temperature",
       measurement: [
         {
           id: 0,
-          date: "",
-          value: "",
+          date: "9/16/2023",
+          value: 25,
+          observation: "A água é aquecida a 25",
+        },
+      ],
+    },
+
+    {
+      id: 2,
+      kind: "GH",
+      measurement: [
+        {
+          id: 0,
+          date: "9/16/2023",
+          value: 0,
           observation: "",
         },
       ],
     },
     {
-      id: 2,
-      kind: "water_ph",
+      id: 3,
+      kind: "Nitrito",
       measurement: [
         {
           id: 0,
-          date: "09/15/2023",
-          value: "6.8",
+          date: "9/16/2023",
+          value: 0.5,
+          observation: "",
+        },
+      ],
+    },
+    {
+      id: 4,
+      kind: "Nitrato",
+      measurement: [
+        {
+          id: 0,
+          date: "9/16/2023",
+          value: 25,
+          observation: "",
+        },
+      ],
+    },
+    {
+      id: 5,
+      kind: "Cloro",
+      measurement: [
+        {
+          id: 0,
+          date: "9/16/2023",
+          value: 0,
+          observation: "",
+        },
+      ],
+    },
+    {
+      id: 6,
+      kind: "kH",
+      measurement: [
+        {
+          id: 0,
+          date: "9/16/2023",
+          value: 120,
+          observation: "",
+        },
+      ],
+    },
+    {
+      id: 7,
+      kind: "pH",
+      measurement: [
+        {
+          id: 0,
+          date: "9/15/2023",
+          value: 6.8,
+          observation: "",
+        },
+        {
+          id: 1,
+          date: "9/16/2023",
+          value: 7.8,
           observation: "",
         },
       ],
@@ -426,6 +501,10 @@ const ManagerPage = ({ showPage }) => {
 
   const { id } = useParams();
 
+  if (showPage === "aquarium") {
+    return <Home listMeasurement={measurements} />;
+  }
+
   if (showPage === "addFish") {
     return (
       <>
@@ -478,6 +557,13 @@ const ManagerPage = ({ showPage }) => {
           listFish={fish}
           idFish={id}
         />
+      </>
+    );
+  }
+  if (showPage === "listMeasurement") {
+    return (
+      <>
+        <ListMeasurements listMeasurement={measurements} />
       </>
     );
   }

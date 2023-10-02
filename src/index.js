@@ -4,7 +4,6 @@ import "./index.css";
 
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HomePage from "./pages/HomePage";
 import NavWrapper from "./components/structure/NavWrapper";
 import ManagerPage from "./pages/ManagerPage";
 
@@ -15,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />,
+        element: <ManagerPage showPage="aquarium" />,
       },
       {
         path: "/addFish",
@@ -36,6 +35,14 @@ const router = createBrowserRouter([
       {
         path: "/fishDetails/:id",
         element: <ManagerPage showPage="fishDetails" />,
+      },
+      {
+        path: "/addMeasurement",
+        element: <ManagerPage showPage="addMeasurement" />,
+      },
+      {
+        path: "/listMeasurement",
+        element: <ManagerPage showPage="listMeasurement" />,
       },
     ],
   },

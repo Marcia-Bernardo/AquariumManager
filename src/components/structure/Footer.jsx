@@ -20,7 +20,7 @@ const Footer = () => {
           </ul>
           <div className="d-flex justify-content-center">
             <p>
-              <span>Costs</span> &copy; 2023
+              <span>Management</span> &copy; 2023
             </p>
           </div>
         </div>

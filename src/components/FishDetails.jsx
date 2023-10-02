@@ -68,7 +68,9 @@ const FishDetails = ({
                   </p>
                   {fish.gender === "Female" && (
                     <p>
-                      <span style={{ fontWeight: "bold" }}>Breeding date:</span>
+                      <span style={{ fontWeight: "bold" }}>
+                        Breeding date:{" "}
+                      </span>
                       {fish.breeding_date}
                     </p>
                   )}

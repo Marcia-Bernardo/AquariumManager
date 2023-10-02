@@ -8,6 +8,7 @@ const CardFish = ({ listNameRace, listFish }) => {
         const race = listNameRace.find((race) => {
           return race.id_race === fish.id_race;
         });
+        console.log(race.img);
 
         return (
           <>
