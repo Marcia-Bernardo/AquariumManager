@@ -1,5 +1,6 @@
 import React from "react";
 import breeds from "../img/Guppy_breeds.jpg";
+import aquarium from "../img/aquarium.jpeg";
 import { Link } from "react-router-dom";
 import "./Carrosel.css";
 
@@ -14,7 +15,7 @@ const Carrosel = () => {
         <div className="carousel-indicators">
           <button
             type="button"
-            data-bs-target="/myCarousel"
+            data-bs-target="#myCarousel"
             data-bs-slide-to="0"
             className="active"
             aria-current="true"
@@ -22,13 +23,13 @@ const Carrosel = () => {
           ></button>
           <button
             type="button"
-            data-bs-target="/myCarousel"
+            data-bs-target="#myCarousel"
             data-bs-slide-to="1"
             aria-label="Slide 2"
           ></button>
           <button
             type="button"
-            data-bs-target="/myCarousel"
+            data-bs-target="#myCarousel"
             data-bs-slide-to="2"
             aria-label="Slide 3"
           ></button>
@@ -50,12 +51,11 @@ const Carrosel = () => {
             <div className="container">
               <div className="carousel-caption text-start">
                 <img className="" src={breeds} alt="breeds" />
-                <h1>Example Poecilia reticulata</h1>
+                <h1>Fish in our aquarium</h1>
                 <p>
-                  A variety of guppy strains are produced by breeders through
-                  selective breeding, characterized by different colours,
-                  patterns, shapes, and sizes of fins, such as snakeskin and
-                  grass varieties.
+                  A variety of fish strains are produced by breeders,
+                  characterized by different colors, patterns, shapes and fin
+                  sizes.
                 </p>
                 <p>
                   <Link className="btn btn-lg btn-primary" to="/listFish">
@@ -80,14 +80,21 @@ const Carrosel = () => {
 
             <div className="container">
               <div className="carousel-caption">
-                <h1>Another example headline.</h1>
+                <img
+                  className=""
+                  src={aquarium}
+                  alt="aquarium"
+                  height="250px"
+                />
+
+                <h1>Aquarium measurements.</h1>
+                <p>Pay attention to the measurements</p>
                 <p>
-                  Some representative placeholder content for the second slide
-                  of the carousel.
-                </p>
-                <p>
-                  <Link className="btn btn-lg btn-primary" to="">
-                    Learn more
+                  <Link
+                    className="btn btn-lg btn-primary"
+                    to="/listMeasurement"
+                  >
+                    Read more
                   </Link>
                 </p>
               </div>
@@ -125,7 +132,7 @@ const Carrosel = () => {
         <button
           className="carousel-control-prev"
           type="button"
-          data-bs-target="/myCarousel"
+          data-bs-target="#myCarousel"
           data-bs-slide="prev"
         >
           <span
@@ -137,7 +144,7 @@ const Carrosel = () => {
         <button
           className="carousel-control-next"
           type="button"
-          data-bs-target="/myCarousel"
+          data-bs-target="#myCarousel"
           data-bs-slide="next"
         >
           <span

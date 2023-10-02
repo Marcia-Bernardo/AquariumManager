@@ -1,12 +1,14 @@
 import React from "react";
 import Carrosel from "./Carrosel";
+import Alert from "./Alert";
 
-const Home = () => {
+const Home = ({ listMeasurement }) => {
   return (
     <>
-      <div className="mt-5  mb-5">
+      <div className="mb-5 mt-5">
         <Carrosel />
       </div>
+      <Alert listMeasurement={listMeasurement} />
     </>
   );
 };
