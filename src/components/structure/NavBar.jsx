@@ -77,6 +77,31 @@ const NavBar = () => {
                   </li>
                 </ul>
               </li>
+
+              <li className="nav-item dropdown">
+                <Link
+                  className="nav-link dropdown-toggle"
+                  to="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Aquariums
+                </Link>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li>
+                    <Link className="dropdown-item" to="#">
+                      Add
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/listMeasurement">
+                      List
+                    </Link>
+                  </li>
+                </ul>
+              </li>
             </ul>
 
             <form className="d-flex" role="search">
