@@ -1,17 +1,13 @@
 import React from "react";
 import breeds from "../img/Guppy_breeds.jpg";
-import aquarium from "../img/aquarium.jpeg";
+import aquarium from "../img/aquariumNovo.jpeg";
 import { Link } from "react-router-dom";
 import "./Carrosel.css";
 
 const Carrosel = () => {
   return (
     <>
-      <div
-        id="myCarousel"
-        className="carousel slide mt-5"
-        data-bs-ride="carousel"
-      >
+      <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-indicators">
           <button
             type="button"

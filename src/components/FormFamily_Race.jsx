@@ -2,7 +2,6 @@ import React from "react";
 
 const FormFamilyRace = ({ listNameSpecie, showSelect, saveState, state }) => {
   const updateState = (e) => {
-    console.log(e.target);
     state[e.target.id] = e.target.value;
 
     saveState({ ...state });
@@ -19,6 +18,7 @@ const FormFamilyRace = ({ listNameSpecie, showSelect, saveState, state }) => {
             className="form-select"
             aria-label="Default select example"
             id="id_sp"
+            value={state.id_sp || "0"}
           >
             <option value="" key="">
               Select a specie
@@ -49,6 +49,7 @@ const FormFamilyRace = ({ listNameSpecie, showSelect, saveState, state }) => {
           className="form-control"
           id="name"
           placeholder="Name"
+          value={state.name || ""}
           onChange={(e) => updateState(e)}
         />
       </div>
@@ -60,6 +61,7 @@ const FormFamilyRace = ({ listNameSpecie, showSelect, saveState, state }) => {
           className="form-control"
           id="characteristics"
           rows="3"
+          value={state.characteristics || ""}
           onChange={(e) => updateState(e)}
         ></textarea>
       </div>

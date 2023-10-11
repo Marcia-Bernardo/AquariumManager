@@ -8,13 +8,19 @@ const CardFish = ({ listNameRace, listFish }) => {
         const race = listNameRace.find((race) => {
           return race.id_race === fish.id_race;
         });
-        console.log(race.img);
+        const raceDate = race.name.split(" ");
+        console.log(raceDate[0] + raceDate[1] + "." + "jpeg");
 
         return (
           <>
             <div className="card me-2" style={{ width: "20rem" }}>
               <img
-                src={`/img/${race.img}`}
+                src={`/img/${
+                  raceDate[0].toUpperCase() +
+                  raceDate[1].toUpperCase() +
+                  "." +
+                  "jpeg"
+                }`}
                 className="card-img-top"
                 alt="flame"
                 width="40px"
@@ -29,22 +35,26 @@ const CardFish = ({ listNameRace, listFish }) => {
                 <div className="row">
                   <div className="col-6">
                     <ul className="list-group list-group-flush">
-                      <li className="list-group-item">Race: {race.name}</li>
-                      <li className="list-group-item">
+                      <li className="list-group-item" key={race.id}>
+                        Race: {race.name}
+                      </li>
+                      <li className="list-group-item" key={race.id}>
                         Generation:{fish.generation}
                       </li>
                     </ul>
                   </div>
                   <div className="col-6">
                     <ul className="list-group list-group-flush">
-                      <li className="list-group-item">Gender: {fish.gender}</li>
+                      <li className="list-group-item" key={race.id}>
+                        Gender: {fish.gender}
+                      </li>
                     </ul>
                   </div>
                 </div>
 
                 <Link
                   to={`/fishDetails/${fish.id_fish}`}
-                  className="btn btn-primary mt-3"
+                  className="btn btn-primary mt-3 "
                 >
                   Details
                 </Link>

@@ -19,7 +19,8 @@ const FishDetails = ({
         const family = listNameFamily.find((family) => {
           return family.id === specie.id_family;
         });
-
+        const raceDate = race.name.split(" ");
+        console.log(raceDate[0] + raceDate[1] + "." + "jpeg");
         return (
           <div className="container mt-5">
             <div className="row align-items-start">
@@ -28,7 +29,7 @@ const FishDetails = ({
               </div>
               <div className="col-3">
                 <img
-                  src={`/img/${race.img}`}
+                  src={`/img/${raceDate[0] + raceDate[1] + "." + "jpeg"}`}
                   className="card-img-top"
                   alt="flame"
                   width="40px"

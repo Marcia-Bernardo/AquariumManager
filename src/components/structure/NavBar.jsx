@@ -66,7 +66,7 @@ const NavBar = () => {
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <Link className="dropdown-item" to="#">
+                    <Link className="dropdown-item" to="/addMeasurement">
                       Add
                     </Link>
                   </li>

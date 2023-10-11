@@ -1,445 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AddFish from "../components/AddFish";
 import ListRace from "../components/ListRace";
 import ListFishCard from "./../components/ListFishCard";
 import ShowFish from "../components/ShowFish";
 import { useParams } from "react-router-dom";
 import Details from "../components/Details";
-import ListMeasurements from "../components/listMeasurements";
+import ListMeasurements from "../components/ListMeasurements";
 import Home from "../components/Home";
+import AddMeasurements from "../components/AddMeasurements";
 
 const ManagerPage = ({ showPage }) => {
-  const [families, setFamilies] = useState([
-    {
-      id: 0,
-      name: "Cyprinidae",
-      characteristics:
-        "It's the largest and most diverse fish family. Cyprinids are often introduced as a management tool to control various factors in the aquatic environment, such as aquatic vegetation and diseases transmitted by snails.",
-    },
-    {
-      id: 1,
-      name: "Callichthyidae",
-      characteristics:
-        "Callichthyidae is a family of catfishes (order Siluriformes), called armored catfishes due to the two rows of bony plates (or scutes) along the lengths of their bodies. It contains some of the most popular freshwater aquarium fish, such as many species in the gender Corydoras.",
-    },
-    {
-      id: 2,
-      name: "Poeciliidae",
-      characteristics:
-        "Although the whole family Poeciliidae is known as 'live bearers' (ovoviparous), some species are egg-scattering with external fertilization.",
-    },
-  ]);
+  const [families, setFamilies] = useState([]);
 
-  const [species, setSpecies] = useState([
-    {
-      id_sp: 0,
-      id_family: 0,
-      name: "Crossocheilus oblongus",
-      characteristics:
-        "Since they cannot stay in mid water, they love driftwood/rocks and some plants that can support their weight to rest on. This species that prefers Java moss to red algae, and an undescribed species of Crossocheilus.",
-      minTemp: 24,
-      maxTemp: 26,
-      water_ph: "6.5 - 8.0",
-    },
-    {
-      id_sp: 1,
-      id_family: 1,
-      name: "Corydoras pygmaeus",
-      characteristics:
-        " he pygmy corydoras is widely distributed in inland waters in Peru in tributaries of the Nanay River, in Ecuador in tributaries of the Aguarico River, and in western Brazil in tributaries of the Madeira River. It feeds on worms, benthic crustaceans, insects, and plant matter. ",
-      minTemp: 22,
-      maxTemp: 26,
-      water_ph: "6.0 - 8.0",
-    },
-    {
-      id_sp: 2,
-      id_family: 2,
-      name: "Poecilia reticulata",
-      characteristics:
-        "Guppies originate from northeast South America, but have been introduced to many environments and are now found all over the world. Male guppies (5cm), which are smaller than females (7 cm), have ornamental caudal and dorsal fins. Wild guppies generally feed on a variety of food sources, including benthic algae and aquatic insect larvae.",
-      minTemp: 25,
-      maxTemp: 27,
-      water_ph: "",
-    },
-  ]);
+  const [species, setSpecies] = useState([]);
 
-  const [race, setRace] = useState([
-    {
-      id_race: 0,
-      id_sp: 2,
-      name: "Assortead guppy",
-      characteristics: "",
-      img: "guppy.jpeg",
-    },
-    {
-      id_race: 1,
-      id_sp: 2,
-      name: "Guppy Flame",
-      characteristics: "",
-      img: "guppyFlame.jpeg",
-    },
-    {
-      id_race: 2,
-      id_sp: 2,
-      name: "Guppy Emerald Blue and Red Grass",
-      characteristics: "",
-      img: "GuppyEmeraldBlue.jpeg",
-    },
-    {
-      id_race: 3,
-      id_sp: 2,
-      name: "Guppy Koi Tuxedo",
-      characteristics:
-        "The Koi Tuxedo has a red head and red fins with a black base color. The males are usually more intensely coloured than the females and have larger fins. They also have a gonopodium converted to a mating organ, which is a pen-shaped anal fin. Females grow slightly larger and have a more sail-shaped anal fin.",
-      img: "koi.jpeg",
-    },
-    {
-      id_race: 4,
-      id_sp: 2,
-      name: "Assortead guppy children",
-      characteristics: "",
-      img: "levinos.jpeg",
-    },
-    {
-      id_race: 5,
-      id_sp: 1,
-      name: "Pygmy corydoras",
-      characteristics: "",
-      img: "Pygmy.jpeg",
-    },
-    {
-      id_race: 6,
-      id_sp: 0,
-      name: "Siamese algae-eater",
-      characteristics: "",
-      img: "Siamese.jpeg",
-    },
-  ]);
+  const [race, setRace] = useState([]);
 
-  const [fish, setFish] = useState([
-    {
-      id_fish: 0,
-      id_race: 6,
-      generation: 1,
-      gender: "Male",
-      arrival_date: "09/06/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 1,
-      id_race: 5,
-      generation: 1,
-      gender: "",
-      arrival_date: "09/06/2023",
-      date_of_death: "09/21/2023",
-      breeding_date: "",
-    },
-    {
-      id_fish: 2,
-      id_race: 5,
-      generation: 1,
-      gender: "",
-      arrival_date: "09/06/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 3,
-      id_race: 5,
-      generation: 1,
-      gender: "",
-      arrival_date: "09/06/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 4,
-      id_race: 5,
-      generation: 1,
-      gender: "",
-      arrival_date: "09/06/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 5,
-      id_sp: 2,
-      id_race: 0,
-      generation: 1,
-      gender: "Female",
-      arrival_date: "08/15/2023",
-      date_of_death: "",
-      breeding_date: "09/10/2023",
-    },
-    {
-      id_fish: 6,
-      id_sp: 2,
-      id_race: 0,
-      generation: 1,
-      gender: "Female",
-      arrival_date: "08/15/2023",
-      date_of_death: "",
-      breeding_date: "09/10/2023",
-    },
-    {
-      id_fish: 7,
-      id_sp: 2,
-      id_race: 3,
-      generation: 1,
-      gender: "Male",
-      arrival_date: "09/06/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 8,
-      id_race: 4,
-      generation: 2,
-      gender: "",
-      arrival_date: "09/06/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 9,
-      id_race: 4,
-      generation: 2,
-      gender: "",
-      arrival_date: "09/06/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 10,
-      id_race: 4,
-      generation: 2,
-      gender: "",
-      arrival_date: "09/10/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 11,
-      id_race: 4,
-      generation: 2,
-      gender: "",
-      arrival_date: "09/10/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 12,
-      id_race: 4,
-      generation: 2,
-      gender: "",
-      arrival_date: "09/10/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 13,
-      id_race: 4,
-      generation: 2,
-      gender: "",
-      arrival_date: "09/10/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 14,
-      id_race: 4,
-      generation: 2,
-      gender: "",
-      arrival_date: "09/10/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 15,
-      id_race: 4,
-      generation: 2,
-      gender: "",
-      arrival_date: "09/10/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 16,
-      id_race: 4,
-      generation: 2,
-      gender: "",
-      arrival_date: "09/10/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 17,
-      id_race: 4,
-      generation: 2,
-      gender: "",
-      arrival_date: "09/10/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 18,
-      id_race: 3,
-      generation: 1,
-      gender: "Female",
-      arrival_date: "09/14/2023",
-      date_of_death: "",
-      breeding_date: "09/23/2023",
-    },
-    {
-      id_fish: 19,
-      id_race: 2,
-      generation: 1,
-      gender: "Female",
-      arrival_date: "09/14/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 20,
-      id_race: 0,
-      generation: 1,
-      gender: "Female",
-      arrival_date: "09/14/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 21,
-      id_race: 1,
-      generation: 1,
-      gender: "Female",
-      arrival_date: "09/14/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-    {
-      id_fish: 22,
-      id_race: 1,
-      generation: 1,
-      gender: "Macho",
-      arrival_date: "09/14/2023",
-      date_of_death: "",
-      breeding_date: "",
-    },
-  ]);
+  const [fish, setFish] = useState([]);
 
-  const [measurements, setMeasurements] = useState([
-    {
-      id: 0,
-      kind: "Changing the water",
-      measurement: [
-        {
-          id: 0,
-          date: "8/27/2023",
-          value: 50,
-          observation: "Changing the pool to this 50l aquarium",
-        },
-        {
-          id: 1,
-          date: "9/16/2023",
-          value: 10,
-          observation: "Changed 20% the water  to this 50l aquarium",
-        },
-      ],
-    },
-    {
-      id: 1,
-      kind: "Water temperature",
-      measurement: [
-        {
-          id: 0,
-          date: "9/16/2023",
-          value: 25,
-          observation: "A água é aquecida a 25",
-        },
-      ],
-    },
+  const [measurements, setMeasurements] = useState([]);
+  const [measurement, setMeasurement] = useState([]);
 
-    {
-      id: 2,
-      kind: "GH",
-      measurement: [
-        {
-          id: 0,
-          date: "9/16/2023",
-          value: 0,
-          observation: "",
-        },
-      ],
-    },
-    {
-      id: 3,
-      kind: "Nitrito",
-      measurement: [
-        {
-          id: 0,
-          date: "9/16/2023",
-          value: 0.5,
-          observation: "",
-        },
-      ],
-    },
-    {
-      id: 4,
-      kind: "Nitrato",
-      measurement: [
-        {
-          id: 0,
-          date: "9/16/2023",
-          value: 25,
-          observation: "",
-        },
-      ],
-    },
-    {
-      id: 5,
-      kind: "Cloro",
-      measurement: [
-        {
-          id: 0,
-          date: "9/16/2023",
-          value: 0,
-          observation: "",
-        },
-      ],
-    },
-    {
-      id: 6,
-      kind: "kH",
-      measurement: [
-        {
-          id: 0,
-          date: "9/16/2023",
-          value: 120,
-          observation: "",
-        },
-      ],
-    },
-    {
-      id: 7,
-      kind: "pH",
-      measurement: [
-        {
-          id: 0,
-          date: "9/15/2023",
-          value: 6.8,
-          observation: "",
-        },
-        {
-          id: 1,
-          date: "9/16/2023",
-          value: 7.8,
-          observation: "",
-        },
-      ],
-    },
-  ]);
+  useEffect(() => {
+    // const emptyMeasurements = [
+    //   {
+    //     id: 0,
+    //     kind: "Changing the water",
+    //     measurement: [],
+    //   },
+    // ];
+    if (localStorage.getItem(`families`) === null) {
+      localStorage.setItem(`families`, JSON.stringify(families));
+    }
+    if (localStorage.getItem(`species`) === null) {
+      localStorage.setItem(`species`, JSON.stringify(species));
+    }
+    if (localStorage.getItem(`race`) === null) {
+      localStorage.setItem(`race`, JSON.stringify(race));
+    }
+
+    if (localStorage.getItem(`fish`) === null) {
+      localStorage.setItem(`fish`, JSON.stringify(fish));
+    }
+    if (localStorage.getItem(`measurements`) === null) {
+      localStorage.setItem(`measurements`, JSON.stringify(measurements));
+    }
+    if (localStorage.getItem(`measurement`) === null) {
+      localStorage.setItem(`measurement`, JSON.stringify(measurement));
+    }
+
+    setFamilies(JSON.parse(localStorage.getItem(`families`)));
+    setSpecies(JSON.parse(localStorage.getItem(`species`)));
+    setRace(JSON.parse(localStorage.getItem(`race`)));
+    setFish(JSON.parse(localStorage.getItem(`fish`)));
+    setMeasurements(JSON.parse(localStorage.getItem(`measurements`)));
+    setMeasurement(JSON.parse(localStorage.getItem(`measurement`)));
+  }, []);
 
   const addFish = (
     id_race,
@@ -449,7 +65,10 @@ const ManagerPage = ({ showPage }) => {
     dateOfDeath,
     breedindDate
   ) => {
-    const idFish = fish[fish.length - 1].id_fish + 1;
+    let idFish = 1;
+    if (fish.length > 0) {
+      idFish = fish[fish.length - 1].id_fish + 1;
+    }
     const newFish = {
       id_fish: idFish,
       id_race: id_race,
@@ -460,21 +79,54 @@ const ManagerPage = ({ showPage }) => {
       breeding_date: breedindDate,
     };
     setFish([...fish, newFish]);
+    localStorage.setItem(`fish`, JSON.stringify([...fish, newFish]));
   };
 
   const addFamily = (data) => {
-    const idFamily = families[families.length - 1].id + 1;
-
+    let idFamily = 1;
+    if (families.length > 0) {
+      idFamily = families[families.length - 1].id + 1;
+    }
+    if (data.name === undefined || data.name === "") {
+      return;
+    }
+    if (data.characteristics === undefined || data.characteristics === "") {
+      return;
+    }
     const newFamily = {
       id: idFamily,
       name: data.name,
       characteristics: data.characteristics,
     };
     setFamilies([...families, newFamily]);
+
+    localStorage.setItem(`families`, JSON.stringify([...families, newFamily]));
   };
 
   const addSpecie = (data) => {
-    const idSpecie = species[species.length - 1].id_sp + 1;
+    let idSpecie = 1;
+    if (species.length > 0) {
+      idSpecie = species[species.length - 1].id_sp + 1;
+    }
+    // if (data.family === undefined || data.family === "") {
+    //   return;
+    // }
+    if (data.name === undefined || data.name === "") {
+      return;
+    }
+    if (data.characteristics === undefined || data.characteristics === "") {
+      return;
+    }
+    if (data.minT === undefined || data.minT === "") {
+      return;
+    }
+    if (data.maxT === undefined || data.maxT === "") {
+      return;
+    }
+
+    if (data.ph === undefined || data.ph === "" || isNaN(parseInt(data.ph))) {
+      return;
+    }
     const newSpecie = {
       id_sp: idSpecie,
       id_family: parseInt(data.id_family),
@@ -485,18 +137,86 @@ const ManagerPage = ({ showPage }) => {
       water_ph: parseInt(data.ph),
     };
     setSpecies([...species, newSpecie]);
+
+    localStorage.setItem(`species`, JSON.stringify([...species, newSpecie]));
   };
 
   const addRace = (data) => {
-    const idRace = race[race.length - 1].id_race + 1;
-
+    let idRace = 1;
+    if (race.length > 0) {
+      idRace = race[race.length - 1].id_race + 1;
+    }
+    if (data.name === undefined || data.name === "") {
+      return;
+    }
+    if (data.characteristics === undefined || data.characteristics === "") {
+      return;
+    }
     const newRace = {
       id_race: idRace,
       id_sp: parseInt(data.id_sp),
       name: data.name,
       characteristics: data.characteristics,
+      img: data.img,
     };
     setRace([...race, newRace]);
+
+    localStorage.setItem(`race`, JSON.stringify([...race, newRace]));
+  };
+
+  const addKindMeasurement = (data) => {
+    let idMeasurements = 1;
+    if (measurements.length > 0) {
+      idMeasurements = measurements[measurements.length - 1].id + 1;
+    }
+    if (data.kind === undefined || data.kind === "") {
+      return;
+    }
+
+    const newMeasurements = {
+      idMeasurements: idMeasurements,
+      kind: data.kind,
+      measurement: [],
+    };
+    setMeasurements([...measurements, newMeasurements]);
+    localStorage.setItem(
+      `measurements`,
+      JSON.stringify([...measurements, newMeasurements])
+    );
+  };
+
+  const addMeasurement = (data) => {
+    let idMeasurement = 1;
+    const filterKindMeasurement = measurements.find(
+      (measurements) => measurements.id === data.id
+    );
+    console.log(measurements);
+    if (measurement.length > 0) {
+      idMeasurement = measurement[measurement.length - 1].id + 1;
+    }
+    if (data.kind === undefined || data.date === "") {
+      return;
+    }
+    if (data.date === undefined || data.date === "") {
+      return;
+    }
+    if (data.value === undefined || data.value === "") {
+      return;
+    }
+    if (data.observation === undefined || data.observation === "") {
+      return;
+    }
+    const newMeasurement = {
+      idMeasurement: idMeasurement,
+      date: data.date,
+      value: data.value,
+      observation: data.observation,
+    };
+    setMeasurements([...measurement, newMeasurement]);
+    localStorage.setItem(
+      `measurements`,
+      JSON.stringify([...measurement, newMeasurement])
+    );
   };
 
   const { id } = useParams();
@@ -520,6 +240,19 @@ const ManagerPage = ({ showPage }) => {
       </>
     );
   }
+
+  if (showPage === "addMeasurement") {
+    return (
+      <>
+        <AddMeasurements
+          listMeasurement={measurements}
+          addKindMeasurement={addKindMeasurement}
+          addMeasurement={addMeasurement}
+        />
+      </>
+    );
+  }
+
   if (showPage === "listRace") {
     return (
       <>

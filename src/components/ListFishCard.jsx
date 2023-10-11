@@ -12,7 +12,7 @@ const ListFishCard = ({ listNameRace, listFish }) => {
           </div>
           {/* </div> */}
         </div>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div className="row row-cols-1 row-cols-md-2 g-4">
           <CardFish listNameRace={listNameRace} listFish={listFish} />
         </div>
       </div>
