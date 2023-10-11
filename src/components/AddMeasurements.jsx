@@ -31,7 +31,7 @@ const AddMeasurements = ({
       return;
     }
     if (observation === "" || observation === undefined) {
-      console.log("no value");
+      console.log("no observation");
       return;
     }
     addMeasurement(chosenMeasurement, date, value, observation);
@@ -109,16 +109,15 @@ const AddMeasurements = ({
             <label htmlFor="formGroupExampleInput2" className="form-label">
               Value:
             </label>
-            <div className="col-sm-4">
+            <div className="col-sm-1">
               <input
                 type="number"
                 className="form-control"
                 id="value"
-                value={value}
                 min={0}
                 placeholder="Range value"
-                // value={value || ""}
-                // onChange={(e) => updateState(e)}
+                value={value || ""}
+                onChange={(e) => setValue(e.target.value)}
               />
             </div>
           </div>
@@ -126,14 +125,13 @@ const AddMeasurements = ({
             <label htmlFor="exampleFormControlTextarea1" className="form-label">
               Observation:
             </label>
-            <div className="col-sm-8">
+            <div className="col-sm-7">
               <textarea
                 className="form-control"
                 id="observation"
-                value={observation}
                 rows="3"
-                // value={state.characteristics || ""}
-                // onChange={(e) => updateState(e)}
+                value={observation || ""}
+                onChange={(e) => setObservation(e.target.value)}
               ></textarea>
             </div>
           </div>

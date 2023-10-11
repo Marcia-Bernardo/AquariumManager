@@ -19,7 +19,6 @@ const ManagerPage = ({ showPage }) => {
   const [fish, setFish] = useState([]);
 
   const [measurements, setMeasurements] = useState([]);
-  const [measurement, setMeasurement] = useState([]);
 
   useEffect(() => {
     // const emptyMeasurements = [
@@ -45,16 +44,12 @@ const ManagerPage = ({ showPage }) => {
     if (localStorage.getItem(`measurements`) === null) {
       localStorage.setItem(`measurements`, JSON.stringify(measurements));
     }
-    if (localStorage.getItem(`measurement`) === null) {
-      localStorage.setItem(`measurement`, JSON.stringify(measurement));
-    }
 
     setFamilies(JSON.parse(localStorage.getItem(`families`)));
     setSpecies(JSON.parse(localStorage.getItem(`species`)));
     setRace(JSON.parse(localStorage.getItem(`race`)));
     setFish(JSON.parse(localStorage.getItem(`fish`)));
     setMeasurements(JSON.parse(localStorage.getItem(`measurements`)));
-    setMeasurement(JSON.parse(localStorage.getItem(`measurement`)));
   }, []);
 
   const addFish = (
@@ -185,38 +180,39 @@ const ManagerPage = ({ showPage }) => {
     );
   };
 
-  const addMeasurement = (data) => {
+  const addMeasurement = (id, date, value, observation) => {
+    console.log(id, date, value, observation);
     let idMeasurement = 1;
     const filterKindMeasurement = measurements.find(
-      (measurements) => measurements.id === data.id
+      (measurements) => measurements.id === id
     );
     console.log(measurements);
-    if (measurement.length > 0) {
-      idMeasurement = measurement[measurement.length - 1].id + 1;
+    if (filterKindMeasurement.measurement.length > 0) {
+      idMeasurement =
+        filterKindMeasurement.measurement[
+          filterKindMeasurement.measurement.length - 1
+        ].idMeasurement + 1;
     }
-    if (data.kind === undefined || data.date === "") {
+
+    if (date === undefined || date === "") {
       return;
     }
-    if (data.date === undefined || data.date === "") {
+    if (value === undefined || value === "") {
       return;
     }
-    if (data.value === undefined || data.value === "") {
+    if (observation === undefined || observation === "") {
       return;
     }
-    if (data.observation === undefined || data.observation === "") {
-      return;
-    }
+
     const newMeasurement = {
       idMeasurement: idMeasurement,
-      date: data.date,
-      value: data.value,
-      observation: data.observation,
+      date: date,
+      value: value,
+      observation: observation,
     };
-    setMeasurements([...measurement, newMeasurement]);
-    localStorage.setItem(
-      `measurements`,
-      JSON.stringify([...measurement, newMeasurement])
-    );
+    filterKindMeasurement.measurement.push(newMeasurement);
+    setMeasurements([...measurements]);
+    localStorage.setItem(`measurements`, JSON.stringify([...measurements]));
   };
 
   const { id } = useParams();
