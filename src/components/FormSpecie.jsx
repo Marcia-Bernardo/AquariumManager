@@ -2,7 +2,6 @@ import React from "react";
 
 const FormSpecie = ({ listNameFamily, state, saveState }) => {
   const updateState = (e) => {
-    console.log(e.target.value);
     state[e.target.id] = e.target.value;
 
     saveState({ ...state });
@@ -21,14 +20,19 @@ const FormSpecie = ({ listNameFamily, state, saveState }) => {
                 <select
                   className="form-select"
                   aria-label="Default select example"
+                  required
+                  value={state.id_family || "0"}
                 >
-                  <option value="">Select a family</option>
+                  <option value="0" key="0">
+                    Select a family
+                  </option>
                   {listNameFamily.map((family) => {
                     return (
                       <option
                         value={family.id}
                         key={family.id}
                         id="id_family"
+                        required
                         onClick={(e) => updateState(e)}
                       >
                         {family.name}
@@ -49,6 +53,7 @@ const FormSpecie = ({ listNameFamily, state, saveState }) => {
                   type="text"
                   className="form-control"
                   id="name"
+                  value={state.name || ""}
                   placeholder="Name specie"
                   onChange={(e) => updateState(e)}
                 />
@@ -68,6 +73,7 @@ const FormSpecie = ({ listNameFamily, state, saveState }) => {
                   className="form-control"
                   id="characteristics"
                   rows="3"
+                  value={state.characteristics || ""}
                   onChange={(e) => updateState(e)}
                 ></textarea>
               </div>
@@ -78,21 +84,25 @@ const FormSpecie = ({ listNameFamily, state, saveState }) => {
                   Water temperature:
                 </label>
                 <div className="row mb-3">
-                  <div className="col-sm-2">
+                  <div className="col-3">
                     <input
-                      type="text"
+                      type="number"
                       className="form-control"
                       id="minT"
+                      min={0}
+                      value={state.minT || ""}
                       placeholder="°C"
                       onChange={(e) => updateState(e)}
                     />
                   </div>
                   -
-                  <div className="col-sm-2">
+                  <div className="col-3">
                     <input
-                      type="text"
+                      type="number"
                       className="form-control"
                       id="maxT"
+                      min={0}
+                      value={state.maxT || ""}
                       placeholder="°C"
                       onChange={(e) => updateState(e)}
                     />
@@ -105,12 +115,15 @@ const FormSpecie = ({ listNameFamily, state, saveState }) => {
                 <label htmlFor="formGroupExampleInput2" className="form-label">
                   Water ph:
                 </label>
-                <div className="col-sm-10">
+                <div className="col-sm-4">
                   <input
-                    type="text"
+                    type="number"
                     className="form-control"
                     id="ph"
+                    min={0}
+                    max={14}
                     placeholder="Range ph"
+                    value={state.ph || ""}
                     onChange={(e) => updateState(e)}
                   />
                 </div>

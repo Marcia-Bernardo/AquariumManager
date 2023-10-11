@@ -15,7 +15,7 @@ const AddFish = ({
   const [chosenFamily, setChosenFamily] = useState();
   const [chosenSpecie, setChosenSpecie] = useState();
   const [chosenRace, setChosenRace] = useState();
-  const [generation, setGeneration] = useState();
+  const [generation, setGeneration] = useState(0);
   const [gender, setGender] = useState();
   const [arrivalDate, setArrivalDate] = useState("");
   const [dateDeath, setDateDeath] = useState("");
@@ -58,6 +58,14 @@ const AddFish = ({
       dateDeath,
       breedingDate
     );
+    setChosenFamily("0");
+    setChosenSpecie();
+    setChosenRace();
+    setGeneration(0);
+    setArrivalDate("");
+    setDateDeath("");
+    setBreedingDate("");
+    setGender();
   };
 
   return (
@@ -74,12 +82,19 @@ const AddFish = ({
             <label htmlFor="validationDefault04" className="form-label">
               Family
             </label>
-            <select className="form-select" id="validationDefault04" required>
-              <option value="">Select a family</option>
+            <select
+              className="form-select"
+              id="validationDefault04"
+              required
+              value={chosenFamily}
+            >
+              <option value="0" key="0">
+                Select a family
+              </option>
               {listNameFamily.map((family) => {
                 return (
                   <option
-                    value=""
+                    value={family.id}
                     key={family.id}
                     onClick={() => setChosenFamily(family.id)}
                   >
@@ -109,12 +124,19 @@ const AddFish = ({
             <label htmlFor="validationDefault04" className="form-label">
               Specie
             </label>
-            <select className="form-select" id="validationDefault04" required>
-              <option value="">Select a specie</option>
+            <select
+              className="form-select"
+              id="validationDefault04"
+              required
+              value={chosenSpecie}
+            >
+              <option value="0s" key="0">
+                Select a specie
+              </option>
               {specieFilter.map((specie) => {
                 return (
                   <option
-                    value=""
+                    value={specie.id_sp}
                     key={specie.id}
                     onClick={() => setChosenSpecie(specie.id_sp)}
                   >
@@ -143,12 +165,17 @@ const AddFish = ({
             <label htmlFor="validationDefault04" className="form-label">
               Race
             </label>
-            <select className="form-select" id="validationDefault04" required>
-              <option key={0}>Select a race</option>
+            <select
+              className="form-select"
+              id="validationDefault04"
+              required
+              value={chosenRace}
+            >
+              <option key="0">Select a race</option>
               {raceFilter.map((race) => {
                 return (
                   <option
-                    value=""
+                    value={race.id_race}
                     key={race.id}
                     onClick={() => setChosenRace(race.id_race)}
                   >
@@ -184,7 +211,6 @@ const AddFish = ({
               className="form-control"
               id="generation"
               min={0}
-              max={3}
               placeholder=""
               value={generation}
               onChange={(e) => setGeneration(e.target.value)}
@@ -201,6 +227,7 @@ const AddFish = ({
                 type="radio"
                 name="gridRadios"
                 id="gridRadios1"
+                checked={gender === "Female"}
                 onClick={() => setGender("Female")}
               />
               <label className="form-check-label" htmlFor="gridRadios1">
@@ -214,6 +241,7 @@ const AddFish = ({
                 type="radio"
                 name="gridRadios"
                 id="gridRadios2"
+                checked={gender === "Male"}
                 onClick={() => setGender("Male")}
               />
               <label className="form-check-label" htmlFor="gridRadios2">

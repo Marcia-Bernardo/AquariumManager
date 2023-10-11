@@ -2,7 +2,10 @@ import React, { useState } from "react";
 
 const Modal = ({ children, title, id, saveForm }) => {
   const [state, setState] = useState({});
-
+  const save = () => {
+    saveForm(state);
+    setState({});
+  };
   return (
     <>
       <div
@@ -42,7 +45,7 @@ const Modal = ({ children, title, id, saveForm }) => {
               <button
                 type="button"
                 className="btn btn-primary"
-                onClick={() => saveForm(state)}
+                onClick={() => save()}
               >
                 Add
               </button>

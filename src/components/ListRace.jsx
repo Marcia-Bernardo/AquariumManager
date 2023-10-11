@@ -50,7 +50,7 @@ const ListRace = ({
                       <td>{qtdFish[race.id_race]}</td>
                       <td>
                         <Link
-                          class="btn btn-primary"
+                          className="btn btn-primary"
                           to={`/showFish/${race.id_race}`}
                         >
                           Show Fish
